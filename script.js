@@ -18,6 +18,7 @@ dbclickF.addEventListener('dblclick', changeLike);
 
 //task3
 //var counter = 0;
+
 var firstName = document.querySelector('#first_name2');
 firstName.addEventListener('keydown', function (event) {
     //console.log(++counter);
@@ -45,7 +46,7 @@ btnOpenModal.addEventListener('click', function () {
 
 var counterNew = document.querySelector('.modal-content');
 window.addEventListener('keydown', function (event) {
-    // console.log(event.key)
+    console.log(event.key)
     if (event.key === 'Escape' || event.key === 'Enter') {
         modal.classList.remove('modal_open');
     }
@@ -67,7 +68,7 @@ input5.addEventListener('input', function () {
 var input6 = document.getElementById('first_login2');
 // console.log(document.getElementById('first_login2').value[0]);
 input6.addEventListener('input', function () {
-    if (input6.value[0] === input6.value[0].toUpperCase() && input6.value.length >= 1 && input6.value.trim() !== '') {
+    if (input6.value.trim() !== '' && input6.value.trim()[0] === input6.value.trim()[0].toUpperCase() && input6.value.trim().length >= 1) {
 
         input6.nextElementSibling.style.display = 'none';
     } else {
@@ -82,6 +83,7 @@ function calculateWater() {
     var currentWeight = inpur7.value;
     var totalInfo = document.querySelector('#final-calculate');
     totalInfo.innerText = `${currentWeight * 30} мл`;
+    inpur7.value = '';
 }
 
 var btnWeightCalculate = document.addEventListener('click', calculateWater)
@@ -108,16 +110,18 @@ var input9 = document.getElementById('first_login9');
 var inpUp = document.getElementsByClassName('error-message3');
 var inp5Simb = document.getElementsByClassName('error-message4');
 
+
 input9.addEventListener('input', function () {
-    if (input9.value.trim() !== '' && input9.value.length >= 5) {
-        inp5Simb[0].style.display = 'none';
-    } else {
-        inp5Simb[0].style.display = 'block';
-    }
-    if (input9.value[0] === input9.value[0].toUpperCase()) {
+
+    if (input9.value.trim() !== '' && input9.value.trim()[0] === input9.value.trim()[0].toUpperCase() && input9.value.trim().length > 0) {
         inpUp[0].style.display = 'none';
 
     } else {
         inpUp[0].style.display = 'block';
+    }
+    if (input9.value.trim() !== '' && input9.value.trim().length >= 5) {
+        inp5Simb[0].style.display = 'none';
+    } else {
+        inp5Simb[0].style.display = 'block';
     }
 })
